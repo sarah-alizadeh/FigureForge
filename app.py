@@ -124,7 +124,7 @@ def render_workflow() -> None:
     with step_1:
         st.info(
             "**1. Upload Data**\n\n"
-            "Import and inspect your CSV file."
+            "Import and inspect your file."
         )
 
     with step_2:
@@ -208,7 +208,7 @@ def render_bottom_section() -> None:
         st.subheader("Privacy")
 
         st.write(
-            "Uploaded CSV files are processed only for the current "
+            "Uploaded files are processed only for the current "
             "FigureForge session. Do not upload confidential, restricted, "
             "or personally identifiable data unless you are authorized "
             "to process it."
@@ -382,7 +382,7 @@ class NamedBytesIO(BytesIO):
     """
     In-memory file object with a filename.
 
-    This lets the built-in sample CSV behave like a file uploaded
+    This lets the built in sample CSV behave like a file uploaded
     through Streamlit.
     """
 
@@ -422,7 +422,7 @@ data_source = st.radio(
     "Choose a data source",
     options=[
         "Use Sample Dataset",
-        "Upload My Own CSV",
+        "Upload My Own File",
     ],
     horizontal=True,
     key="figureforge_data_source",
@@ -473,7 +473,7 @@ else:
         "Upload your CSV or Excel file",
         type=["csv", "xlsx", "xls"],
         help=(
-            "Upload a CSV file containing column headers "
+            "Upload a file containing column headers "
             "and at least one data row."
         ),
         key="production_csv_uploader",
@@ -481,7 +481,7 @@ else:
 
     if uploaded_file is None:
         st.info(
-            "Upload a CSV file to begin creating your figure."
+            "Upload a file to begin creating your figure."
         )
 
         render_bottom_section()
@@ -495,7 +495,7 @@ try:
 
 except MemoryError:
     st.error(
-        "The uploaded CSV is too large to load into memory."
+        "The uploaded file is too large to load into memory."
     )
 
     render_bottom_section()
@@ -520,7 +520,7 @@ if load_error:
 
 if dataset is None:
     st.error(
-        "The CSV loader did not return a dataset."
+        "The file loader did not return a dataset."
     )
 
     render_bottom_section()
@@ -542,7 +542,7 @@ missing_dataset_keys = [
 
 if missing_dataset_keys:
     st.error(
-        "The CSV dataset is missing required information: "
+        "The dataset is missing required information: "
         + ", ".join(
             sorted(missing_dataset_keys)
         )
@@ -565,7 +565,7 @@ rows = dataset.get(
 
 if len(columns) < 2:
     st.error(
-        "The CSV must contain at least two columns."
+        "The file must contain at least two columns."
     )
 
     render_bottom_section()
@@ -574,7 +574,7 @@ if len(columns) < 2:
 
 if not rows:
     st.error(
-        "The CSV does not contain any usable data rows."
+        "The File does not contain any usable data rows."
     )
 
     render_bottom_section()
@@ -590,7 +590,7 @@ except Exception:
     numeric_columns = []
 
 
-st.success("CSV loaded successfully.")
+st.success("File loaded successfully.")
 
 metric_1, metric_2, metric_3 = st.columns(3)
 
@@ -614,7 +614,7 @@ with metric_3:
 
 
 with st.expander(
-    "CSV Preview — First 10 Rows",
+    "File Preview — First 10 Rows",
     expanded=True,
 ):
     try:
@@ -628,7 +628,7 @@ with st.expander(
 
     except Exception as error:
         st.warning(
-            "The CSV loaded, but the preview could not be created. "
+            "The file loaded, but the preview could not be created. "
             f"{type(error).__name__}: {error}"
         )
 
@@ -832,7 +832,7 @@ if not x_column:
 if x_column not in columns:
     st.error(
         f'The selected X-axis column "{x_column}" '
-        "does not exist in the uploaded CSV."
+        "does not exist in the uploaded file."
     )
 
     render_bottom_section()
@@ -909,7 +909,7 @@ with st.spinner(
     except MemoryError:
         st.error(
             "The figure used too much memory. "
-            "Try fewer series or a smaller CSV."
+            "Try fewer series or a smaller file."
         )
 
         render_bottom_section()
