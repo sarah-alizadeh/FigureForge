@@ -107,7 +107,7 @@ def render_header() -> None:
         )
 
         st.write(
-            "Upload CSV data, select columns, customize professional "
+            "Upload CSV or Excel data, select columns, customize professional "
             "figures, and download results."
         )
 
@@ -470,8 +470,8 @@ if data_source == "Use Sample Dataset":
 
 else:
     uploaded_file = st.file_uploader(
-        "Upload your CSV file",
-        type=["csv"],
+        "Upload your CSV or Excel file",
+        type=["csv", "xlsx", "xls"],
         help=(
             "Upload a CSV file containing column headers "
             "and at least one data row."
