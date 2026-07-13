@@ -1,5 +1,13 @@
 # FigureForge
 
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+
+![Streamlit](https://img.shields.io/badge/Built%20With-Streamlit-red)
+
+![Plotly](https://img.shields.io/badge/Visualization-Plotly-green)
+
+![Status](https://img.shields.io/badge/Status-Live-success)
+
 **FigureForge** is a web application that helps students, researchers, and engineers transform raw CSV data into clean, scientific figures in minutes.
 
 Built with Streamlit, FigureForge provides a simple interface for uploading data, customizing professional plots, fitting curves, and exporting publication quality figures without writing code.
@@ -88,15 +96,25 @@ Please do **not** upload confidential, proprietary, or personally identifiable i
 
 ## Screenshots
 
-### Main Interface
+### FigureForge Interface
 
-*(Insert screenshot here)*
+![Homepage](assets/homepage.png)
 
-### Example Figure
+### Example Output
 
-*(Insert screenshot here)*
+![Example Figure](assets/example_figure.png)
 
 ---
+## Technologies
+
+| Technology | Purpose |
+|------------|---------|
+| Python | Core application |
+| Streamlit | Web interface |
+| Plotly | Interactive plotting |
+| Pandas | CSV processing |
+| NumPy | Numerical calculations |
+| SciPy | Curve fitting |
 
 ## Live Application
 
